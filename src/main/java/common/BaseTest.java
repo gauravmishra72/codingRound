@@ -1,6 +1,7 @@
 package common;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
+import org.openqa.selenium.support.PageFactory;
 import org.testng.annotations.AfterMethod;
 import org.testng.annotations.AfterSuite;
 import org.testng.annotations.BeforeMethod;
@@ -12,6 +13,7 @@ import com.sun.javafx.PlatformUtil;
 public class BaseTest {
 	
 	public WebDriver driver;
+	
 	
 	@BeforeSuite
     public WebDriver setDriverPath() {
@@ -27,7 +29,8 @@ public class BaseTest {
         }
         driver =new ChromeDriver();
         driver.manage().window().maximize();
-        return driver;
+        PageFactory.initElements(driver, this);
+        return this.driver;
     }
 
 @AfterSuite
@@ -36,5 +39,14 @@ public void quitDriver()
 	driver.quit();
 	
 }
+
+public void waitFor(int durationInMilliSeconds) {
+    try {
+        Thread.sleep(durationInMilliSeconds);
+    } catch (InterruptedException e) {
+        e.printStackTrace();  //To change body of catch statement use File | Settings | File Templates.
+    }
+}
+
 
 }

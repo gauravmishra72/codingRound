@@ -1,5 +1,7 @@
 package testSuites;
 import com.sun.javafx.PlatformUtil;
+import common.BaseTest;
+
 import org.openqa.selenium.By;
 import org.openqa.selenium.NoSuchElementException;
 import org.openqa.selenium.WebDriver;
@@ -11,15 +13,13 @@ import org.testng.annotations.Test;
 
 import java.util.List;
 
-public class FlightBookingTest {
+public class FlightBookingTest extends BaseTest {
 
-    WebDriver driver = new ChromeDriver();
 
 
     @Test
     public void testThatResultsAppearForAOneWayJourney() {
 
-        setDriverPath();
         driver.get("https://www.cleartrip.com/");
         waitFor(2000);
         driver.findElement(By.id("OneWay")).click();
@@ -58,13 +58,7 @@ public class FlightBookingTest {
     }
 
 
-    private void waitFor(int durationInMilliSeconds) {
-        try {
-            Thread.sleep(durationInMilliSeconds);
-        } catch (InterruptedException e) {
-            e.printStackTrace();  //To change body of catch statement use File | Settings | File Templates.
-        }
-    }
+
 
 
     private boolean isElementPresent(By by) {
@@ -75,7 +69,7 @@ public class FlightBookingTest {
             return false;
         }
     }
-
+/*
     private void setDriverPath() {
         if (PlatformUtil.isMac()) {
             System.setProperty("webdriver.chrome.driver", "chromedriver");
@@ -86,5 +80,5 @@ public class FlightBookingTest {
         if (PlatformUtil.isLinux()) {
             System.setProperty("webdriver.chrome.driver", "chromedriver_linux");
         }
-    }
+    }*/
 }
