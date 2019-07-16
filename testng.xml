@@ -1,19 +1,23 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd">
+
 <suite name="Suite" preserve-order="true">
+<listeners>
+<listener class-name="common.CustomListener"/>
+</listeners>
 	<test name="Test">
-		<classes><!-- 
+		<classes>
 			<class name="testSuites.SignInTest">
 				<methods>
 					<include name="shouldThrowAnErrorIfSignInDetailsAreMissing" />
 				</methods>
-			</class> -->
-	<!-- 		<class name="testSuites.HotelBookingTest">
+			</class>
+			<class name="testSuites.HotelBookingTest">
 				<methods>
 					<include name="shouldBeAbleToSearchForHotels" />
 				</methods>
-			</class> -->
-			<class name="testSuites.HFlightBookingTest">
+			</class>
+			<class name="testSuites.FlightBookingTest">
 				<methods>
 					<include name="testThatResultsAppearForAOneWayJourney" />
 				</methods> 
