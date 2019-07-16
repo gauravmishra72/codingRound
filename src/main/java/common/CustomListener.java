@@ -8,6 +8,7 @@ import com.aventstack.extentreports.Status;
 
 public class CustomListener implements ITestListener 
 {
+
 	
 	public void onStart(ITestContext context) {
 		System.out.println("*** Test Suite " + context.getName() + " started ***");
@@ -30,6 +31,7 @@ public class CustomListener implements ITestListener
 	}
 
 	public void onTestFailure(ITestResult result) {
+//		printMgsOnConsole(result);
 		System.out.println("*** Test execution " + result.getMethod().getMethodName() + " failed...");
 
 		ExtentTestManager.getTest().log(Status.FAIL, result.getMethod().getMethodName());
